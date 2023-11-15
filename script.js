@@ -310,7 +310,7 @@ function init(){
         dodo();       
         break;
 
-        case'/shows.html':        
+        case'/shows':        
         displayTVShows();
         break;
 
