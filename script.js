@@ -109,17 +109,14 @@ async function fetchAPIData(endpoint){
 async function displayTVShows(){
     const liki=await fetch('https://api.themoviedb.org/3/tv/popular?api_key=d24a69f94e1ee79c49275818f351ebef&language=en-US')
     const data=await liki.json();
-    // return data;
-    const yere=data.results;
-    // console.log(data.results);
-    console.log(yere);
-    // return data;
 
+    const yere=data.results;
+
+    // <div class="card">
     yere.forEach(element => { 
     const div=document.createElement('div');
-    div.className=("card");
+    div.classList.add("card");
     div.innerHTML=`
-    <div class="card">
           <a href="tv-details.html?id=${element.id}">
             <img
               src="https://image.tmdb.org/t/p/w500${element.poster_path}?api_key=d24a69f94e1ee79c49275818f351ebef"
@@ -132,11 +129,11 @@ async function displayTVShows(){
             <p class="card-text">
               <small class="text-muted">Aired: ${element.first_air_date}</small>
             </p>
-          </div>
         </div>`;
     const gere=document.querySelector('#popular-shows');
     gere.appendChild(div);
   })
+          // </div>
   };
 
 
